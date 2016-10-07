@@ -1,0 +1,12 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+
+application: rrees-email-scheduler
+version: 1
+
+handlers:
+- url: /.*
+  script: app.app
+  secure: always
+  login: admin
