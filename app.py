@@ -2,13 +2,15 @@ import logging
 
 import flask
 
+import forms
 
 app = flask.Flask(__name__)
 
 
-@app.route('/')
-def hello():
-    return flask.render_template('index.html')
+@app.route('/', methods=['GET', 'POST'])
+def front_page():
+    form = forms.ScheduledEmailForm()
+    return flask.render_template('index.html', form=form)
 
 
 @app.errorhandler(500)
