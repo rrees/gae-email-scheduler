@@ -9,7 +9,6 @@ ScheduledEmailForm = model_form(models.ScheduledEmail, field_args={
         },
         'send_datetime': {
             'label': 'When',
-            'validators': [
-                wtforms.validators.Regexp('.*')]
+            'validators': [wtforms.validators.DataRequired(),]
         }
 })
