@@ -3,6 +3,7 @@ import logging
 import flask
 
 import forms
+from repositories import emails
 
 app = flask.Flask(__name__)
 
@@ -18,6 +19,8 @@ def front_page():
     logging.info(form.validate())
     if form.validate():
         logging.info("Form is valid!")
+        logging.info(form.data)
+        emails.save_email(form.data)
 
     logging.info(form.errors)
     return flask.redirect('/')
